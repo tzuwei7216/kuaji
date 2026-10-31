@@ -288,6 +288,79 @@
     font-family: ui-monospace, Menlo, Consolas, monospace; resize: none;
   }
 
+  /* Recurring / installment */
+  .entry-extra { display: flex; gap: 10px; margin: 2px 0 12px; }
+  .chip {
+    flex: 1; padding: 11px 8px; border-radius: 11px; background: var(--surface);
+    border: 1px solid var(--border); font-weight: 600; font-size: 13px; color: var(--muted);
+  }
+  .chip[aria-pressed="true"] { border-color: var(--accent); color: var(--accent); background: color-mix(in srgb, var(--accent) 12%, var(--surface)); }
+  .chip:active { background: var(--surface-2); }
+  .inst-panel { display: flex; gap: 12px; align-items: center; margin: 0 0 12px; padding: 12px; background: var(--surface-2); border-radius: 12px; }
+  .inst-panel .field { flex: none; width: 110px; display: flex; flex-direction: column; gap: 4px; }
+  .inst-panel label { font-size: 11px; color: var(--muted); letter-spacing: .4px; }
+  .inst-panel select { width: 100%; padding: 10px 12px; border-radius: 10px; border: 1px solid var(--border); background: var(--surface); color: var(--fg); }
+  .inst-hint { flex: 1; font-size: 12px; color: var(--muted); line-height: 1.5; min-width: 0; }
+
+  .seg.sm { margin-bottom: 10px; }
+  .seg.sm button { padding: 8px; font-size: 14px; }
+  .recur-list { display: flex; flex-direction: column; gap: 8px; max-height: 34vh; overflow-y: auto; margin-bottom: 14px; }
+  .recur-empty { text-align: center; color: var(--muted); padding: 18px; font-size: 13px; }
+  .recur-row { display: flex; align-items: center; gap: 10px; padding: 9px 10px; border-radius: 10px; background: var(--surface-2); }
+  .recur-row .ic { width: 32px; height: 32px; flex: none; border-radius: 50%; display: grid; place-items: center; color: #fff; font-weight: 700; font-size: 13px; }
+  .recur-row .mid { flex: 1; min-width: 0; }
+  .recur-row .mid .c { font-weight: 600; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .recur-row .mid .n { font-size: 12px; color: var(--muted); }
+  .recur-row .amt { font-weight: 700; }
+  .recur-row .amt.exp { color: var(--expense); }
+  .recur-row .amt.inc { color: var(--income); }
+  .recur-row .rm { color: var(--expense); font-size: 20px; padding: 4px 6px; flex: none; }
+  .recur-form { display: flex; flex-direction: column; gap: 8px; }
+  .recur-form .rf-row { display: flex; gap: 8px; }
+  .recur-form input, .recur-form select { padding: 11px 12px; border-radius: 10px; border: 1px solid var(--border); background: var(--surface); color: var(--fg); width: 100%; }
+  .recur-form .rf-row input { flex: 1; }
+  .recur-form .rf-row select { flex: none; width: 128px; }
+  .recur-form .btn-primary { padding: 12px; border-radius: 11px; font-weight: 700; margin-top: 2px; }
+
+  /* Charts (統計) */
+  .chart-card {
+    background: var(--surface); border: 1px solid var(--border); border-radius: 16px;
+    padding: 14px; box-shadow: var(--shadow); margin-bottom: 14px;
+  }
+  .chart-title { font-size: 14px; font-weight: 700; }
+  .chart-title-row { display: flex; align-items: center; justify-content: space-between; }
+  .win-nav { display: flex; align-items: center; gap: 4px; }
+  .win-nav button { font-size: 20px; color: var(--muted); padding: 2px 8px; border-radius: 8px; }
+  .win-nav button:active { background: var(--surface-2); }
+  .win-nav button:disabled { opacity: .3; }
+  .win-nav span { font-size: 12px; color: var(--muted); min-width: 132px; text-align: center; }
+
+  .range-row { display: flex; align-items: center; gap: 8px; margin: 12px 0 8px; }
+  .range-row input { flex: 1; min-width: 0; padding: 9px 10px; border-radius: 10px; border: 1px solid var(--border); background: var(--surface); color: var(--fg); }
+  .range-row span { color: var(--muted); }
+  .range-quick { display: flex; gap: 6px; flex-wrap: wrap; }
+  .range-quick button { padding: 6px 12px; border-radius: 999px; font-size: 12px; background: var(--surface-2); color: var(--muted); border: 1px solid var(--border); }
+  .range-quick button[aria-pressed="true"] { border-color: var(--accent); color: var(--accent); }
+
+  .pie-area { position: relative; width: 168px; height: 168px; margin: 14px auto 8px; }
+  .pie-area svg { width: 100%; height: 100%; display: block; }
+  .pie-center { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; pointer-events: none; }
+  .pie-center .k { font-size: 11px; color: var(--muted); }
+  .pie-center .v { font-size: 20px; font-weight: 700; margin-top: 2px; }
+  .pie-legend { display: flex; flex-direction: column; gap: 8px; margin-top: 4px; }
+  .lg { display: flex; align-items: center; gap: 9px; font-size: 13px; }
+  .lg .dot { width: 11px; height: 11px; border-radius: 3px; flex: none; }
+  .lg .nm { flex: 1; min-width: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .lg .val { color: var(--muted); }
+
+  .bars-plot { display: flex; align-items: flex-end; gap: 5px; height: 152px; margin-top: 14px; }
+  .bars-plot .mb { flex: 1; min-width: 0; display: flex; flex-direction: column; align-items: center; justify-content: flex-end; height: 100%; }
+  .bars-plot .mb .v { font-size: 9px; color: var(--muted); margin-bottom: 3px; line-height: 1; }
+  .bars-plot .mb .bar { width: 100%; max-width: 20px; border-radius: 4px 4px 0 0; }
+  .bars-plot .mb:active .bar { filter: brightness(.9); }
+  .bars-axis { display: flex; gap: 5px; margin-top: 6px; }
+  .bars-axis .mb-lbl { flex: 1; min-width: 0; text-align: center; font-size: 10px; color: var(--muted); }
+
   .toast {
     position: fixed; left: 50%; bottom: calc(80px + env(safe-area-inset-bottom, 0px));
     transform: translateX(-50%); background: var(--fg); color: var(--bg);
@@ -331,6 +404,17 @@
           <input type="text" id="noteInput" maxlength="40" placeholder="例如：午餐">
         </div>
       </div>
+      <div class="entry-extra">
+        <button class="chip" id="chipInst" aria-pressed="false">💳 分期付款</button>
+        <button class="chip" id="chipRecur">🔁 定期訂閱</button>
+      </div>
+      <div class="inst-panel" id="instPanel" hidden>
+        <div class="field">
+          <label for="instN">分期期數</label>
+          <select id="instN"></select>
+        </div>
+        <div class="inst-hint" id="instHint">把上方金額當成總額，自動分成每月一筆。</div>
+      </div>
       <div class="keypad" id="keypad"></div>
       <button class="save-btn" id="saveBtn" disabled>儲存</button>
     </section>
@@ -355,11 +439,45 @@
 
     <!-- 統計 -->
     <section class="view" id="view-stats" hidden>
-      <div class="stat-total">
-        <div class="k">本月支出合計</div>
-        <div class="v num" id="statTotal">0</div>
+      <div class="seg sm" id="statTypeSeg">
+        <button class="exp" data-t="expense" aria-pressed="true">支出</button>
+        <button class="inc" data-t="income" aria-pressed="false">收入</button>
       </div>
-      <div class="bars" id="statBars"></div>
+
+      <!-- 圓餅圖：日期起迄 × 分類比例 -->
+      <div class="chart-card">
+        <div class="chart-title">分類比例</div>
+        <div class="range-row">
+          <input type="date" id="pieFrom" aria-label="起始日期">
+          <span>~</span>
+          <input type="date" id="pieTo" aria-label="結束日期">
+        </div>
+        <div class="range-quick">
+          <button data-q="month" aria-pressed="true">本月</button>
+          <button data-q="30" aria-pressed="false">近 30 天</button>
+          <button data-q="year" aria-pressed="false">今年</button>
+          <button data-q="all" aria-pressed="false">全部</button>
+        </div>
+        <div class="pie-area">
+          <svg id="pieSvg" viewBox="0 0 120 120" aria-hidden="true"></svg>
+          <div class="pie-center"><div class="k" id="pieCenterK">支出</div><div class="v num" id="pieCenterV">$0</div></div>
+        </div>
+        <div class="pie-legend" id="pieLegend"></div>
+      </div>
+
+      <!-- 直條圖：最近 12 個月總額 -->
+      <div class="chart-card">
+        <div class="chart-title-row">
+          <div class="chart-title">每月總額</div>
+          <div class="win-nav">
+            <button id="winPrev" aria-label="前 12 個月">‹</button>
+            <span class="num" id="winLabel"></span>
+            <button id="winNext" aria-label="後 12 個月">›</button>
+          </div>
+        </div>
+        <div class="bars-plot" id="barsPlot"></div>
+        <div class="bars-axis" id="barsAxis"></div>
+      </div>
     </section>
   </main>
 
@@ -379,6 +497,7 @@
   var K_ENTRIES = "kuaiji.entries.v1";
   var K_CATS = "kuaiji.cats.v1";
   var K_THEME = "kuaiji.theme.v1";
+  var K_RECUR = "kuaiji.recur.v1";
 
   function load(key, fallback) {
     try { var v = localStorage.getItem(key); return v ? JSON.parse(v) : fallback; }
@@ -396,10 +515,16 @@
   var state = {
     entries: load(K_ENTRIES, []),
     cats: load(K_CATS, DEFAULT_CATS),
+    recur: load(K_RECUR, []),
     type: "expense",
     amount: "0",
     category: null,
+    installment: false,
     month: null,       // "YYYY-MM"
+    statType: "expense",
+    statEnd: null,     // bar-chart window end, "YYYY-MM"
+    pieFrom: null,     // pie range "YYYY-MM-DD"
+    pieTo: null,
     view: "entry"
   };
   if (!state.cats.expense) state.cats = DEFAULT_CATS;
@@ -421,6 +546,12 @@
   }
   function monthOf(dateStr) { return dateStr.slice(0, 7); }
   function uid() { return Date.now().toString(36) + Math.random().toString(36).slice(2, 7); }
+  function pad2(x) { return (x < 10 ? "0" : "") + x; }
+  function daysInMonth(m) { var p = m.split("-"); return new Date(+p[0], +p[1], 0).getDate(); }
+  function clampDay(m, day) { return Math.min(day, daysInMonth(m)); }
+  function nextMonth(m) { var p = m.split("-"), y = +p[0], mm = +p[1] + 1; if (mm > 12) { mm = 1; y++; } return y + "-" + pad2(mm); }
+  function shiftMonth(m, delta) { var p = m.split("-"), idx = (+p[0]) * 12 + (+p[1] - 1) + delta; return Math.floor(idx / 12) + "-" + pad2(idx % 12 + 1); }
+  function fmtK(n) { n = Math.round(n); if (!n) return ""; if (n >= 10000) { var w = n / 10000; return (w >= 10 ? Math.round(w) : Math.round(w * 10) / 10) + "萬"; } return String(n); }
 
   // ---------- elements ----------
   var $ = function (id) { return document.getElementById(id); };
@@ -495,6 +626,7 @@
     state.amount = a;
     amountVal.textContent = a;
     updateSave();
+    if (state.installment) updateInstHint();
   }
   function updateSave() {
     saveBtn.disabled = !(parseFloat(state.amount) > 0 && state.category);
@@ -504,6 +636,16 @@
   saveBtn.onclick = function () {
     var amt = parseFloat(state.amount);
     if (!(amt > 0) || !state.category) return;
+    if (state.installment) {
+      var n = +instN.value;
+      addInstallment(amt, n, dateInput.value || todayStr(), state.category, noteInput.value.trim());
+      state.amount = "0"; amountVal.textContent = "0";
+      state.category = null; noteInput.value = "";
+      setInstallment(false);
+      renderCats(); updateSave();
+      toast("已建立分期：共 " + n + " 期，每月一筆");
+      return;
+    }
     var entry = {
       id: uid(), type: state.type, amount: amt, category: state.category,
       note: noteInput.value.trim(), date: dateInput.value || todayStr(), ts: Date.now()
@@ -594,24 +736,89 @@
     return row;
   }
 
-  // ---------- stats ----------
-  function renderStats() {
-    var list = monthEntries().filter(function (e) { return e.type === "expense"; });
+  // ---------- stats (charts) ----------
+  function renderStats() { renderPie(); renderBars(); }
+
+  // 圓餅圖：日期起迄區間內，各分類佔比（依目前支出/收入類型）
+  function renderPie() {
+    var from = state.pieFrom || "2000-01-01", to = state.pieTo || todayStr(), type = state.statType;
+    var list = state.entries.filter(function (e) { return e.type === type && e.date >= from && e.date <= to; });
     var total = 0, byCat = {};
     list.forEach(function (e) { total += e.amount; byCat[e.category] = (byCat[e.category] || 0) + e.amount; });
-    $("statTotal").textContent = "$" + fmt(total);
-    var bars = $("statBars");
-    bars.innerHTML = "";
-    if (total === 0) { bars.innerHTML = '<div class="empty"><div class="big">📊</div>這個月還沒有支出</div>'; return; }
-    Object.keys(byCat).sort(function (a, b) { return byCat[b] - byCat[a]; }).forEach(function (c) {
-      var amt = byCat[c], pct = Math.round(amt / total * 100);
-      var it = document.createElement("div");
-      it.className = "bar-item";
-      it.innerHTML =
-        '<div class="top"><span>' + esc(c) + '</span><span class="pct num">$' + fmt(amt) + ' · ' + pct + '%</span></div>' +
-        '<div class="track"><div class="fill" style="width:' + Math.max(pct, 2) + '%;background:' + colorFor(c) + '"></div></div>';
-      bars.appendChild(it);
+    var cats = Object.keys(byCat).sort(function (a, b) { return byCat[b] - byCat[a]; });
+
+    var cx = 60, cy = 60, r = 42, sw = 18, C = 2 * Math.PI * r, acc = 0, seg = "";
+    cats.forEach(function (c) {
+      var len = byCat[c] / total * C;
+      seg += '<circle cx="' + cx + '" cy="' + cy + '" r="' + r + '" fill="none" stroke="' + colorFor(c) +
+        '" stroke-width="' + sw + '" stroke-dasharray="' + len + ' ' + (C - len) + '" stroke-dashoffset="' + (-acc) + '"></circle>';
+      acc += len;
     });
+    var svg = $("pieSvg");
+    svg.innerHTML = total > 0
+      ? '<g transform="rotate(-90 60 60)">' + seg + '</g>'
+      : '<circle cx="60" cy="60" r="42" fill="none" stroke="var(--surface-2)" stroke-width="18"></circle>';
+    $("pieCenterK").textContent = (type === "expense" ? "支出" : "收入");
+    $("pieCenterV").textContent = "$" + fmt(total);
+
+    var lg = $("pieLegend");
+    lg.innerHTML = "";
+    if (total === 0) {
+      lg.innerHTML = '<div class="empty" style="padding:24px 10px"><div class="big">📊</div>這段期間沒有' + (type === "expense" ? "支出" : "收入") + '</div>';
+      return;
+    }
+    cats.forEach(function (c) {
+      var amt = byCat[c], pct = Math.round(amt / total * 100);
+      var d = document.createElement("div");
+      d.className = "lg";
+      d.innerHTML = '<span class="dot" style="background:' + colorFor(c) + '"></span>' +
+        '<span class="nm">' + esc(c) + '</span>' +
+        '<span class="val num">$' + fmt(amt) + ' · ' + pct + '%</span>';
+      lg.appendChild(d);
+    });
+  }
+
+  // 直條圖：以 statEnd 為結尾的最近 12 個月，每月總額
+  function renderBars() {
+    var type = state.statType, end = state.statEnd, months = [];
+    for (var i = 11; i >= 0; i--) months.push(shiftMonth(end, -i));
+    var vals = months.map(function (m) {
+      var s = 0;
+      state.entries.forEach(function (e) { if (e.type === type && monthOf(e.date) === m) s += e.amount; });
+      return s;
+    });
+    var max = Math.max.apply(null, vals.concat([0]));
+    $("winLabel").textContent = months[0] + " ~ " + months[11];
+    $("winNext").disabled = (end >= monthOf(todayStr()));
+
+    var plot = $("barsPlot"), axis = $("barsAxis");
+    plot.innerHTML = ""; axis.innerHTML = "";
+    months.forEach(function (m, idx) {
+      var v = vals[idx], h = (max > 0 && v > 0) ? Math.max(Math.round(v / max * 120), 3) : 0;
+      var col = document.createElement("div");
+      col.className = "mb";
+      col.innerHTML = '<div class="v num">' + fmtK(v) + '</div>' +
+        '<div class="bar" style="height:' + h + 'px;background:' + (type === "expense" ? "var(--expense)" : "var(--income)") + '"></div>';
+      col.onclick = function () { toast(m + "：" + (type === "expense" ? "支出" : "收入") + " $" + fmt(v)); };
+      plot.appendChild(col);
+      var lb = document.createElement("div");
+      lb.className = "mb-lbl";
+      lb.textContent = (+m.split("-")[1]);
+      axis.appendChild(lb);
+    });
+  }
+
+  function clearQuick() {
+    document.querySelectorAll(".range-quick button").forEach(function (x) { x.setAttribute("aria-pressed", "false"); });
+  }
+  function applyQuick(q) {
+    var today = todayStr(), from, to = today;
+    if (q === "month") { from = today.slice(0, 7) + "-01"; }
+    else if (q === "30") { var d = new Date(); d.setDate(d.getDate() - 29); from = d.getFullYear() + "-" + pad2(d.getMonth() + 1) + "-" + pad2(d.getDate()); }
+    else if (q === "year") { from = today.slice(0, 4) + "-01-01"; }
+    else { from = "2000-01-01"; }
+    state.pieFrom = from; state.pieTo = to;
+    $("pieFrom").value = from; $("pieTo").value = to;
   }
 
   // ---------- views ----------
@@ -623,7 +830,7 @@
     document.querySelectorAll(".tabs button").forEach(function (b) {
       b.setAttribute("aria-selected", b.dataset.view === v);
     });
-    $("monthbar").hidden = (v === "entry");
+    $("monthbar").hidden = (v !== "records");
     $("sub").textContent = v === "entry" ? "快速記一筆" : (v === "records" ? "明細與匯出" : "分類統計");
     if (v === "records") renderRecords();
     if (v === "stats") renderStats();
@@ -777,6 +984,161 @@
     s.querySelector(".btn-ghost").onclick = function () { o.remove(); };
   }
 
+  // ---------- recurring + installment ----------
+  function makeRecurEntry(it, m) {
+    return {
+      id: uid(), type: it.type, amount: it.amount, category: it.category,
+      note: it.note || "", date: m + "-" + pad2(clampDay(m, it.day)),
+      ts: Date.now(), recurId: it.id
+    };
+  }
+  // Catch up: for each active subscription, add one entry per month from its
+  // start up to the current month that hasn't been generated yet. `gen` records
+  // the months already done, so deleting a generated entry won't resurrect it.
+  function materializeRecur() {
+    var cur = monthOf(todayStr()), changed = false;
+    state.recur.forEach(function (it) {
+      if (it.active === false) return;
+      it.gen = it.gen || [];
+      var m = it.start, guard = 0;
+      while (m <= cur && guard < 600) {
+        if (it.gen.indexOf(m) === -1) {
+          state.entries.push(makeRecurEntry(it, m));
+          it.gen.push(m); changed = true;
+        }
+        m = nextMonth(m); guard++;
+      }
+    });
+    if (changed) { save(K_ENTRIES, state.entries); save(K_RECUR, state.recur); }
+  }
+
+  // Split a total into N monthly expense entries; period 1 absorbs the rounding remainder.
+  function addInstallment(total, n, startDate, category, note) {
+    var m = monthOf(startDate), day = +startDate.slice(8, 10), instId = uid();
+    var per = Math.round(total / n * 100) / 100, acc = 0, amts = [];
+    for (var i = 1; i < n; i++) { amts.push(per); acc += per; }
+    amts.unshift(Math.round((total - acc) * 100) / 100);
+    for (var k = 0; k < n; k++) {
+      state.entries.push({
+        id: uid(), type: "expense", amount: amts[k], category: category,
+        note: (note ? note + " " : "") + "分期 " + (k + 1) + "/" + n,
+        date: m + "-" + pad2(clampDay(m, day)), ts: Date.now() + k, instId: instId
+      });
+      m = nextMonth(m);
+    }
+    save(K_ENTRIES, state.entries);
+  }
+
+  // installment toggle on the 記帳 view
+  var chipInst = $("chipInst"), instPanel = $("instPanel"), instN = $("instN"), instHint = $("instHint");
+  for (var _i = 2; _i <= 24; _i++) {
+    var _op = document.createElement("option");
+    _op.value = _i; _op.textContent = _i + " 期";
+    instN.appendChild(_op);
+  }
+  instN.value = "3";
+  function updateInstHint() {
+    var total = parseFloat(state.amount) || 0, n = +instN.value;
+    if (state.installment && total > 0 && n > 0) {
+      var per = Math.round(total / n * 100) / 100;
+      instHint.innerHTML = "總額 $" + fmt(total) + " ÷ " + n + " 期<br>每月約 $" + fmt(per) + "，連續 " + n + " 個月。";
+    } else {
+      instHint.textContent = "把上方金額當成總額，自動分成每月一筆。";
+    }
+  }
+  function setInstallment(on) {
+    state.installment = on;
+    chipInst.setAttribute("aria-pressed", on);
+    instPanel.hidden = !on;
+    if (on && state.type !== "expense") setType("expense");
+    saveBtn.textContent = on ? "建立分期" : "儲存";
+    updateInstHint();
+  }
+  chipInst.onclick = function () { setInstallment(!state.installment); };
+  instN.onchange = updateInstHint;
+
+  // recurring subscriptions manager
+  $("chipRecur").onclick = openRecurManager;
+  function openRecurManager() {
+    var s = document.createElement("div");
+    s.className = "sheet";
+    s.innerHTML =
+      '<h3>定期訂閱</h3><p>設定一次，每個月自動記一筆（如 Netflix、電信費、保費）。開啟 app 時會自動補上。</p>' +
+      '<div class="recur-list"></div>' +
+      '<div class="recur-form">' +
+        '<div class="seg sm"><button class="exp" data-t="expense" aria-pressed="true">支出</button><button class="inc" data-t="income" aria-pressed="false">收入</button></div>' +
+        '<div class="rf-row"><input type="number" id="rcAmt" inputmode="decimal" placeholder="每月金額"><select id="rcDay"></select></div>' +
+        '<select id="rcCat"></select>' +
+        '<input type="text" id="rcNote" maxlength="20" placeholder="名稱，例如 Netflix">' +
+        '<button class="btn-primary" id="rcAdd">＋ 新增訂閱</button>' +
+      '</div>' +
+      '<div class="actions" style="margin-top:16px"><button class="btn-ghost">完成</button></div>';
+    var o = overlay(s);
+    var rfType = "expense";
+    var rcAmt = s.querySelector("#rcAmt"), rcDay = s.querySelector("#rcDay"),
+        rcCat = s.querySelector("#rcCat"), rcNote = s.querySelector("#rcNote");
+    for (var d = 1; d <= 28; d++) {
+      var op = document.createElement("option");
+      op.value = d; op.textContent = "每月 " + d + " 號"; rcDay.appendChild(op);
+    }
+    rcDay.value = "1";
+    function fillCats() {
+      rcCat.innerHTML = "";
+      (state.cats[rfType] || []).forEach(function (c) {
+        var o2 = document.createElement("option"); o2.value = c; o2.textContent = c; rcCat.appendChild(o2);
+      });
+    }
+    fillCats();
+    s.querySelectorAll(".seg.sm button").forEach(function (b) {
+      b.onclick = function () {
+        rfType = b.dataset.t;
+        s.querySelectorAll(".seg.sm button").forEach(function (x) { x.setAttribute("aria-pressed", x === b); });
+        fillCats();
+      };
+    });
+    var listEl = s.querySelector(".recur-list");
+    function redraw() {
+      listEl.innerHTML = "";
+      if (!state.recur.length) { listEl.innerHTML = '<div class="recur-empty">還沒有定期訂閱</div>'; return; }
+      state.recur.forEach(function (it) {
+        var r = document.createElement("div");
+        r.className = "recur-row";
+        var sign = it.type === "expense" ? "-" : "+";
+        r.innerHTML =
+          '<span class="ic" style="background:' + colorFor(it.category) + '">' + esc(it.category.slice(0, 1)) + '</span>' +
+          '<div class="mid"><div class="c">' + esc(it.note || it.category) + '</div>' +
+          '<div class="n">' + esc(it.category) + ' · 每月 ' + it.day + ' 號</div></div>' +
+          '<span class="amt num ' + (it.type === "expense" ? "exp" : "inc") + '">' + sign + fmt(it.amount) + '</span>' +
+          '<button class="rm" aria-label="移除">×</button>';
+        r.querySelector(".rm").onclick = function () {
+          state.recur = state.recur.filter(function (x) { return x.id !== it.id; });
+          save(K_RECUR, state.recur); redraw();
+          toast("已移除訂閱（已記錄的不受影響）");
+        };
+        listEl.appendChild(r);
+      });
+    }
+    redraw();
+    s.querySelector("#rcAdd").onclick = function () {
+      var amt = parseFloat(rcAmt.value);
+      if (!(amt > 0)) { toast("請輸入金額"); return; }
+      if (!rcCat.value) { toast("請先建立分類"); return; }
+      state.recur.push({
+        id: uid(), type: rfType, amount: Math.round(amt * 100) / 100,
+        category: rcCat.value, note: rcNote.value.trim(),
+        day: +rcDay.value, start: monthOf(todayStr()), active: true, gen: []
+      });
+      save(K_RECUR, state.recur);
+      materializeRecur();
+      rcAmt.value = ""; rcNote.value = "";
+      redraw();
+      if (state.view === "records") renderRecords();
+      if (state.view === "stats") renderStats();
+      toast("已新增訂閱，本月已自動記一筆");
+    };
+    s.querySelector(".btn-ghost").onclick = function () { o.remove(); };
+  }
+
   // ---------- toast ----------
   var toastTimer = null;
   function toast(msg) {
@@ -789,12 +1151,44 @@
   }
 
   // ---------- init ----------
+  materializeRecur();
   state.month = monthOf(todayStr());
   $("monthLabel").textContent = state.month;
   dateInput.value = todayStr();
   setType("expense");
   renderCats();
   updateSave();
+
+  // stats defaults + controls
+  state.statType = "expense";
+  state.statEnd = monthOf(todayStr());
+  state.pieTo = todayStr();
+  state.pieFrom = todayStr().slice(0, 7) + "-01";
+  $("pieFrom").value = state.pieFrom;
+  $("pieTo").value = state.pieTo;
+  document.querySelectorAll("#statTypeSeg button").forEach(function (b) {
+    b.onclick = function () {
+      state.statType = b.dataset.t;
+      document.querySelectorAll("#statTypeSeg button").forEach(function (x) { x.setAttribute("aria-pressed", x === b); });
+      renderStats();
+    };
+  });
+  $("pieFrom").onchange = function () { state.pieFrom = this.value; clearQuick(); renderPie(); };
+  $("pieTo").onchange = function () { state.pieTo = this.value; clearQuick(); renderPie(); };
+  document.querySelectorAll(".range-quick button").forEach(function (b) {
+    b.onclick = function () {
+      applyQuick(b.dataset.q);
+      document.querySelectorAll(".range-quick button").forEach(function (x) { x.setAttribute("aria-pressed", x === b); });
+      renderPie();
+    };
+  });
+  $("winPrev").onclick = function () { state.statEnd = shiftMonth(state.statEnd, -12); renderBars(); };
+  $("winNext").onclick = function () {
+    var cur = monthOf(todayStr()), ne = shiftMonth(state.statEnd, 12);
+    state.statEnd = ne > cur ? cur : ne;
+    renderBars();
+  };
+
   setView("entry");
 
   // service worker (works when hosted over https, e.g. GitHub Pages)
