@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <rect width="512" height="512" rx="112" fill="#10b981"/>
+  <path d="M256 104c-72 0-120 30-120 74 0 30 24 50 64 60-40 10-72 34-72 70 0 48 56 80 128 80s128-32 128-80c0-36-32-60-72-70 40-10 64-30 64-60 0-44-48-74-120-74z" fill="#ffffff" opacity="0.14"/>
+  <text x="256" y="320" font-family="PingFang TC, Noto Sans TC, Microsoft JhengHei, sans-serif" font-size="230" font-weight="700" fill="#ffffff" text-anchor="middle">記</text>
+</svg>
