@@ -1,6 +1,6 @@
 /* 快記 service worker — caches the app shell so it opens offline. */
-var CACHE = "kuaiji-v1";
-var SHELL = ["./", "./index.html", "./manifest.json", "./icon.svg"];
+var CACHE = "kuaiji-v2";
+var SHELL = ["./", "./index.html", "./manifest.json", "./icon.svg", "./icon-192.png", "./icon-512.png"];
 
 self.addEventListener("install", function (e) {
   e.waitUntil(caches.open(CACHE).then(function (c) { return c.addAll(SHELL); }).then(function () { return self.skipWaiting(); }));
